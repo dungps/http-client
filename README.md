@@ -35,9 +35,8 @@ message Response {
 2. Generate go with protobuf
 
 This is require some cli
-- [protoc]()
-- [protoc-gen-go]()
-- [protoc-gen-go-client]()
+- [protoc](https://github.com/protocolbuffers/protobuf-go)
+- [protoc-gen-go-client](https://github.com/dungps/http-client/tree/master/cmd/protoc-gen-go-client)
 
 ```shell
 protoc --go_out=paths=source_relative:. --go_client=paths=source_relative:. example.proto
