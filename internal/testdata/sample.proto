@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "github.com/dungps/http-client/internal/testdata;testdata";
+
+package testdata;
+
+message HelloWorld {
+  string name = 1;
+  HelloWorldSub sub = 2;
+}
+
+message HelloWorldSub {
+  string name = 1;
+}

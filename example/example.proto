@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option go_package = "github.com/dungps/http-client/example;main";
+
+package client;
+
+import "example/google/api/annotations.proto";
+import "google/protobuf/descriptor.proto";
+
+service ExampleService {
+  rpc ListServices(ListServicesRequest) returns (ListServicesResponse) {
+    option(google.api.http) = {
+      get: "/services"
+    };
+  }
+
+  rpc GetService(GetMessageRequest) returns (GetServiceResponse) {
+    option(google.api.http) = {
+      get: "/services/{name}"
+    };
+  }
+}
+
+message ListServicesRequest {}
+message ListServicesResponse {
+  repeated string services = 1;
+  repeated string methods = 2;
+}
+
+message GetMessageRequest {
+  string name = 1;
+  GetMessageSub sub = 2;
+}
+
+message GetMessageSub {
+  string name = 1;
+}
+
+message GetServiceResponse {
+  string message = 1;
+}
